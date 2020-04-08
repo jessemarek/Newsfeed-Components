@@ -61,3 +61,4 @@ function makeMenu(array){
 
 const header = document.querySelector('.header')
 header.appendChild(makeMenu(menuItems))
+
