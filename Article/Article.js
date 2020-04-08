@@ -139,6 +139,7 @@ function makeArticle( {title, date, firstParagraph, secondParagraph, thirdParagr
   const pTwo = document.createElement('p')
   const pThree = document.createElement('p')
   const expandBtn = document.createElement('span')
+  const closeBtn = document.createElement('span')
 
   //Nest elements into the desired structure
   article.appendChild(aTitle)
@@ -147,11 +148,13 @@ function makeArticle( {title, date, firstParagraph, secondParagraph, thirdParagr
   article.appendChild(pTwo)
   article.appendChild(pThree)
   article.appendChild(expandBtn)
+  article.appendChild(closeBtn)
 
   //Give the elements class names
   article.classList.add('article')
   aDate.classList.add('date')
   expandBtn.classList.add('expandButton')
+  closeBtn.classList.add('close')
 
   //Add contents to elements
   aTitle.textContent = title
@@ -160,9 +163,11 @@ function makeArticle( {title, date, firstParagraph, secondParagraph, thirdParagr
   pTwo.textContent = secondParagraph
   pThree.textContent = thirdParagraph
   expandBtn.textContent = 'Expand'
+  closeBtn.textContent = 'Close'
 
   //Add Event Listeners
   expandBtn.addEventListener('click', () => article.classList.toggle('article-open'))
+  closeBtn.addEventListener('click', () => article.style.display = 'none')
 
   return article
 }
