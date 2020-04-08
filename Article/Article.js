@@ -85,6 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Adding Articles to a Web Site Dynamically',
+    date: 'Apr 8th, 2020',
+    firstParagraph: `We can add items to a webpage dynamically using JS and some data.`,
+
+    secondParagraph: `By creating new elements and molding them in the manner we wish using JS we can create a webpage that grows dynamically, adding new elements for each data object in our array of data.`,
+
+    thirdParagraph: `This new method of creating website elements is super powerful!`
+  },
+  {
+    title: 'New Article',
+    date: 'Apr 8th, 2020',
+    firstParagraph: `Some text. This project is really cool. I love how it showcases the power of using data objects to add components.`,
+
+    secondParagraph: `Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah`,
+
+    thirdParagraph: `Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah`
   }
 ];
 
@@ -141,6 +159,7 @@ function makeArticle( {title, date, firstParagraph, secondParagraph, thirdParagr
   pOne.textContent = firstParagraph
   pTwo.textContent = secondParagraph
   pThree.textContent = thirdParagraph
+  expandBtn.textContent = 'Expand'
 
   //Add Event Listeners
   expandBtn.addEventListener('click', () => article.classList.toggle('article-open'))
