@@ -167,7 +167,7 @@ function makeArticle( {title, date, firstParagraph, secondParagraph, thirdParagr
 
   //Add Event Listeners
   expandBtn.addEventListener('click', () => article.classList.toggle('article-open'))
-  closeBtn.addEventListener('click', () => article.style.display = 'none')
+  closeBtn.addEventListener('click', () => article.classList.add('article-close'))
 
   return article
 }
