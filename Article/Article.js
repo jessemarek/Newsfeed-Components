@@ -162,11 +162,19 @@ function makeArticle( {title, date, firstParagraph, secondParagraph, thirdParagr
   pOne.textContent = firstParagraph
   pTwo.textContent = secondParagraph
   pThree.textContent = thirdParagraph
-  expandBtn.textContent = 'Expand'
-  closeBtn.textContent = 'Close'
+  expandBtn.textContent = 'Click to Expand'
+  closeBtn.textContent = 'X'
 
   //Add Event Listeners
-  expandBtn.addEventListener('click', () => article.classList.toggle('article-open'))
+  expandBtn.addEventListener('click', () => {
+    article.classList.toggle('article-open')
+    if(expandBtn.textContent === 'Click to Expand'){
+      expandBtn.textContent = 'Click to Close'
+    }else {
+      expandBtn.textContent = 'Click to Expand'
+    }
+    
+  })
   closeBtn.addEventListener('click', () => article.classList.add('article-close'))
 
   return article
