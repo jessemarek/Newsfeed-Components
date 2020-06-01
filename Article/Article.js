@@ -85,6 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Adding Articles to a Web Site Dynamically',
+    date: 'Apr 8th, 2020',
+    firstParagraph: `We can add items to a webpage dynamically using JS and some data.`,
+
+    secondParagraph: `By creating new elements and molding them in the manner we wish using JS we can create a webpage that grows dynamically, adding new elements for each data object in our array of data.`,
+
+    thirdParagraph: `This new method of creating website elements is super powerful!`
+  },
+  {
+    title: 'New Article',
+    date: 'Apr 8th, 2020',
+    firstParagraph: `Some text. This project is really cool. I love how it showcases the power of using data objects to add components.`,
+
+    secondParagraph: `Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah`,
+
+    thirdParagraph: `Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blahBlah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah`
   }
 ];
 
@@ -112,3 +130,57 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function makeArticle( {title, date, firstParagraph, secondParagraph, thirdParagraph} ){
+  //Create the Elements
+  const article = document.createElement('div')
+  const aTitle = document.createElement('h2')
+  const aDate = document.createElement('p')
+  const pOne = document.createElement('p')
+  const pTwo = document.createElement('p')
+  const pThree = document.createElement('p')
+  const expandBtn = document.createElement('span')
+  const closeBtn = document.createElement('span')
+
+  //Nest elements into the desired structure
+  article.appendChild(aTitle)
+  article.appendChild(aDate)
+  article.appendChild(pOne)
+  article.appendChild(pTwo)
+  article.appendChild(pThree)
+  article.appendChild(expandBtn)
+  article.appendChild(closeBtn)
+
+  //Give the elements class names
+  article.classList.add('article')
+  aDate.classList.add('date')
+  expandBtn.classList.add('expandButton')
+  closeBtn.classList.add('close')
+
+  //Add contents to elements
+  aTitle.textContent = title
+  aDate.textContent = date
+  pOne.textContent = firstParagraph
+  pTwo.textContent = secondParagraph
+  pThree.textContent = thirdParagraph
+  expandBtn.textContent = 'Click to Expand'
+  closeBtn.textContent = 'X'
+
+  //Add Event Listeners
+  expandBtn.addEventListener('click', () => {
+    article.classList.toggle('article-open')
+    if(expandBtn.textContent === 'Click to Expand'){
+      expandBtn.textContent = 'Click to Close'
+    }else {
+      expandBtn.textContent = 'Click to Expand'
+    }
+    
+  })
+  closeBtn.addEventListener('click', () => article.classList.add('article-close'))
+
+  return article
+}
+
+const articles = document.querySelector('.articles')
+
+const articleData = data.map(data => makeArticle(data))
+articleData.forEach(a => articles.appendChild(a))
